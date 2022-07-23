@@ -1,8 +1,8 @@
 //fonts
-$google-font: "https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" ;
+$google-font: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Jost:wght@400;500&display=swap" ;
 
 $baseFontSize: 16px;
-$baseFontFamily: 'Source Sans Pro', sans-serif;
+$baseFontFamily: 'Jost', sans-serif;
 $lightFontWeight: 300;
 $mediumFontWeight: 400;
 $boldFontWeight: 700;
@@ -11,48 +11,96 @@ $boldFontWeight: 700;
 $mobilePadding: 12px;
 $desktopPadding: 1rem;
 $maxWidth: 1440px;
+
+
+$darkPink: #FF868E;
+$lightPink: #FBE0DC;
+$white: #FFF;
+$grey: #F8F8F7;
+$darkGrey: #8C8C8C;
+$black: #1D1D1D;
 // Paths
 
-$ip: "../i/";
-$fontsPath: "../fonts/";
-$usersFilesPath: "../userfiles/";
+// $ip: "../i/";
+// $fontsPath: "../fonts/";
+// $usersFilesPath: "../userfiles/";
 
 // Colors
-$blue: #1E236D;
-$white: #ffffff;
-$purple: #886DFD;
+// $blue: #1E236D;
+// $white: #ffffff;
+// $purple: #886DFD;
 
-@mixin head-square{
-    background: rgba(136, 109, 253, .1), ;
-    border: 0;
-    border-radius: 12px;
-    color: $purple;
-    padding: 10px 10px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 120px;
+@mixin choose-button{
+    width: 138px;
+    height: 36px;
+    background-color: $white;
+    margin-top: 10px;
+    border-radius: 10px;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 12px;
+    position: relative;
+    button{
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      vertical-align: middle;
+      color: $darkPink;
+      cursor: pointer;
+
+    };
+    &:hover{ 
+      background-color: $lightPink; 
+    }
+}
+// (voting-header__btn, voting-header__btn-span, voting-header__title)
+@mixin header(){
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .header__btn {
+    margin-left: 10px;
+    span.btn-span {
+      background: url(/images/back.svg) no-repeat center;
+      margin-top: 3px;
+      background-size: contain;
+      cursor: pointer;
+      display: inline-block;
+      height: 52px;
+      width: 40px;
+      &:hover,
+      &:focus {
+        background: url(/images/back2.svg) no-repeat center;
+      }
+    }
+  }
+  .header__title{
+    margin-left: 10px;
+    width: 146px;
+    height: 40px;
+    background-color: $darkPink;
+    border-radius: 10px;
+    h2{
+      margin-top: 10px;
+      font-size: 20px;
+      color: $white;
+      font-weight: 500;
+      text-align: center;
+      vertical-align: middle;
+    }
+  }
 }
 
-@mixin button-box{
-    display: flex;
-    flex-direction: table;
-}
-@mixin button-box__img{
-    width: 45px;
-    padding-right: 10px;
-}
-
-@mixin title{
-    color: $blue;
-    text-align: center;
-    font-weight: $boldFontWeight;
-    font-size: 1.8rem;
-}
-
-@mixin main_text{
-    font-weight: $lightFontWeight;
-    font-size: 1.1rem;
-    line-height: 1.6rem;
+@mixin select(){
+  -webkit-appearance: none;
+  color: $darkGrey;
+  text-align: left;
+  vertical-align: middle;
+  padding-left: 10px;
+  border-radius: 10px;
+  background-color: $grey;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 150ms ease;
 }

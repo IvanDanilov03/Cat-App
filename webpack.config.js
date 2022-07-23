@@ -9,7 +9,9 @@ const webpack = require("webpack");
 const terser = require("terser");
 
 const jsArr = [
-  path.resolve(__dirname, "src/js/jquery-3.6.0.min.js"),
+  path.resolve(__dirname, "src/js/button.js"),
+  path.resolve(__dirname, "src/js/voting.js"),
+
   path.resolve(__dirname, "src/js/script.js"),
 ];
 
