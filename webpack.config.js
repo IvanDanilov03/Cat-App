@@ -11,7 +11,6 @@ const terser = require("terser");
 const jsArr = [
   path.resolve(__dirname, "src/js/button.js"),
   path.resolve(__dirname, "src/js/voting.js"),
-
   path.resolve(__dirname, "src/js/script.js"),
 ];
 
@@ -21,7 +20,7 @@ const templatesFiles =
   files.filter((el) => /\.html$/.test(el) && el !== "index.html") || [];
 
 module.exports = (env, argv) => {
-  const isProduction = argv.mode === "production";
+  const isProduction = argv.mode === "development";
   const plugins = [
     new MiniCssExtractPlugin({ filename: "./dist/css/style.css" }),
     new WebpackConcatPlugin({
@@ -41,7 +40,6 @@ module.exports = (env, argv) => {
         },
       ],
     }),
-
   ];
 
   if (!isProduction) {
@@ -119,6 +117,13 @@ module.exports = (env, argv) => {
             },
           ],
         },
+        // {
+        //   test: /.(png|jpg|svg|ttf|eot|woff|woff2)$/,
+        //   loader: 'file-loader',
+        //   options: {
+        //     name: '[path][name].[ext]'
+        //   }
+        // },
       ],
     },
 

@@ -66,7 +66,7 @@ function createBottomInfo(data, symbol, category){
   newBoxText.innerHTML = `Image ID: ` + `<span class="id">`+ `${id}` + `</span>` +  ` was added to ${category}`;
 
   let newImg = document.createElement('img')
-  newImg.src = `/images/${symbol}.svg`;
+  newImg.src = `images/${symbol}.svg`;
 
   newDiv.append(newTime)
   newDiv.append(newBoxText)

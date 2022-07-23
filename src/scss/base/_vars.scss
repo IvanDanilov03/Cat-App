@@ -48,6 +48,7 @@ $black: #1D1D1D;
       vertical-align: middle;
       color: $darkPink;
       cursor: pointer;
+      width: 100%;
 
     };
     &:hover{ 
@@ -62,7 +63,7 @@ $black: #1D1D1D;
   .header__btn {
     margin-left: 10px;
     span.btn-span {
-      background: url(/images/back.svg) no-repeat center;
+      background: url(../../images/back.svg) no-repeat center;
       margin-top: 3px;
       background-size: contain;
       cursor: pointer;
@@ -71,7 +72,7 @@ $black: #1D1D1D;
       width: 40px;
       &:hover,
       &:focus {
-        background: url(/images/back2.svg) no-repeat center;
+        background: url(../../images/back2.svg) no-repeat center;
       }
     }
   }

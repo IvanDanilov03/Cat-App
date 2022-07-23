@@ -176,7 +176,7 @@ body{
   margin-left: auto;
   margin-right: 10px;
   span.search-bar__btn-span {
-    background: url(/images/find.svg) no-repeat center;
+    background: url(../../images/find.svg) no-repeat center;
     margin-top: 3px;
     background-size: contain;
     cursor: pointer;
@@ -185,7 +185,7 @@ body{
     width: 40px;
     &:hover,
     &:focus {
-      background: url(/images/find2.svg) no-repeat center;
+      background: url(../../images/find2.svg) no-repeat center;
     }
   }
 }
@@ -204,7 +204,7 @@ body{
   width: 60px;
   height: 60px;
   span.lists-likes__btn-span {
-    background: url(/images/smile_red.svg) no-repeat center;
+    background: url(../../images/smile_red.svg) no-repeat center;
     margin-top: 3px;
     background-size: contain;
     cursor: pointer;
@@ -232,7 +232,7 @@ body{
   width: 60px;
   height: 60px;
   span.lists-favourites__btn-span {
-    background: url(/images/heart_red.svg) no-repeat center;
+    background: url(../../images/heart_red.svg) no-repeat center;
     margin-top: 3px;
     background-size: contain;
     cursor: pointer;
@@ -252,7 +252,7 @@ body{
   width: 60px;
   height: 60px;
   span.lists-dislikes__btn-span {
-    background: url(/images/sad_red.svg) no-repeat center;
+    background: url(../../images/sad_red.svg) no-repeat center;
     margin-top: 3px;
     background-size: contain;
     cursor: pointer;
@@ -339,12 +339,12 @@ body{
   margin-left: 10px;
   margin-right: 10px;
   border-radius: 10px;
-  background: url(/images/alfabet-up.svg) no-repeat center $grey;
+  background: url(../../images/alfabet-up.svg) no-repeat center $grey;
   cursor: pointer;
   &:hover,
   &:focus {
     border: 2px solid #FBE0DC;
-    background: url(/images/alfabet-up-red.svg) no-repeat center $grey;
+    background: url(../../images/alfabet-up-red.svg) no-repeat center $grey;
   }
 }
 .breeds-header__alphabet-down{
@@ -352,12 +352,12 @@ body{
   width: 40px;
   margin-right: 10px;
   border-radius: 10px;
-  background: url(/images/alfabet-down.svg) no-repeat center $grey;
+  background: url(../../images/alfabet-down.svg) no-repeat center $grey;
   cursor: pointer;
   &:hover,
   &:focus {
     border: 2px solid #FBE0DC;
-    background: url(/images/alfabet-down-red.svg) no-repeat center $grey;
+    background: url(../../images/alfabet-down-red.svg) no-repeat center $grey;
   }
 }
 
@@ -421,7 +421,7 @@ body{
     width: 80px;
     height: 80px;
     border-radius: 10px 0px 0px 10px;
-    background: url(/images/smile_white.svg) no-repeat center #97EAB9;
+    background: url(../../images/smile_white.svg) no-repeat center #97EAB9;
     cursor: pointer;
   }
 
@@ -429,7 +429,7 @@ body{
     width: 80px;
     height: 80px;
     margin-left: 5px;
-    background: url(/images/heart_white.svg) no-repeat center #FF868E;
+    background: url(../../images/heart_white.svg) no-repeat center #FF868E;
     cursor: pointer;
   }
 
@@ -438,7 +438,7 @@ body{
     height: 80px;
     margin-left: 5px;
     border-radius: 0px 10px 10px 0px;
-    background: url(/images/sad_white.svg) no-repeat center #FFD280;
+    background: url(../../images/sad_white.svg) no-repeat center #FFD280;
     cursor: pointer;
   }
 

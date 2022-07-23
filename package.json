@@ -2,7 +2,8 @@
   "name": "webpack_project",
   "version": "1.0.0",
   "main": "index.js",
-  "homepage": "https://github.com/IvanDanilov03/Test-task-for-Front-End-Intern",
+  "homepage": "https://IvanDanilov03.github.io/Test-task-for-Front-End-Intern/",
+
   "scripts": {
     "webpack": "webpack",
     "start": "webpack serve --mode=development",
@@ -35,8 +36,6 @@
     "webpack-merge-and-include-globally": "^2.3.4"
   },
   "dependencies": {
-    "copy-webpack-plugin": "^9.0.1",
-    "isotope-layout": "^3.0.6",
-    "isotope-masonry-horizontal": "^2.0.1"
+    "copy-webpack-plugin": "^9.0.1"
   }
 }
