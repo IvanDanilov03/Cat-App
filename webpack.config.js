@@ -11,6 +11,8 @@ const terser = require("terser");
 const jsArr = [
   path.resolve(__dirname, "src/js/button.js"),
   path.resolve(__dirname, "src/js/voting.js"),
+  path.resolve(__dirname, "src/js/gallery.js"),
+  path.resolve(__dirname, "src/js/adaptive.js"),
   path.resolve(__dirname, "src/js/script.js"),
 ];
 

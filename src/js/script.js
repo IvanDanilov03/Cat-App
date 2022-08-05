@@ -17,6 +17,7 @@ async function selectBreed(breed){
     })
   return await response.json();
 }
+
 //  const response = await fetch(`https://api.thecatapi.com/v1/breeds?limit=${limit}`, {
 
 
@@ -55,8 +56,8 @@ function reGrid(data){
     img.classList.add('photo')
     let butForImg = document.createElement("h2")
     butForImg.innerHTML = `${data[i].name}`
-    butForImg.classList.add(`${data[i].id}`, 'breed-btn')
-
+    butForImg.classList.add('breed-btn')
+    butForImg.setAttribute("id",`${data[i].id}`);
     sectionForImg.append(img)
     imgBox.append(sectionForImg)
     imgBox.append(butForImg)
@@ -104,8 +105,8 @@ function setBreed(data){
 
   let butForImg = document.createElement("h2")
   butForImg.innerHTML = `${data[0].breeds[0].name}`
-  butForImg.classList.add(`${data[0].id}`, 'breed-btn')
-
+  butForImg.classList.add('breed-btn')
+  butForImg.setAttribute("id",`${data[0].breeds[0].id}`);
   sectionForImg.append(img)
   imgBox.append(sectionForImg)
   imgBox.append(butForImg)
@@ -143,16 +144,14 @@ selectLimit.onchange = function(){
   const photoImg = document.querySelector('.photo')
   if(selectLimit.value == 5){
     breedsGalery.style.columnCount = 2;
+    
   } else if (selectLimit.value == 10){
     breedsGalery.style.columnCount = 3;
 
   } else if (selectLimit.value == 15){
     breedsGalery.style.columnCount = 4;
 
-  } else if (selectLimit.value == 20){
-    breedsGalery.style.columnCount = 4;
-
-  }
+  } 
 }
 
 
@@ -188,18 +187,20 @@ function funcAlphabetDown(){
 
 }
 
-//create page wit breed's description
+//create page with breed's description
 
 
 let newFlag = null
 function setInfoBreed(data){
 
-  
+  let breedId = document.querySelector('.specific__title-text__id')
+  breedId.innerHTML = `${data[0].breeds[0].id}`
+
   let breedInfo = document.querySelector('.breed-info__title')
   breedInfo.innerHTML = `${data[0].breeds[0].name}`
 
-  // let breedInfoFor = document.querySelector('.bredd-info__breed-for')
-  // breedInfoFor.innerHTML = `${data[0].breeds[0].description}`
+  let breedInfoFor = document.querySelector('.bredd-info__breed-for')
+  breedInfoFor.innerHTML = `${data[0].breeds[0].description}`
 
   let temperament = document.querySelector('.description-left__text')
   temperament.innerHTML = `${data[0].breeds[0].temperament}`
@@ -217,7 +218,7 @@ function setInfoBreed(data){
   let img = document.createElement("img");
 
   if (newFlag !== null) {
-    div.removeChild(flag);
+    div.removeChild(newFlag);
   }
   let urlCat = data[0].url;
   img.src = `${urlCat}`;
@@ -225,6 +226,124 @@ function setInfoBreed(data){
   newFlag = div.appendChild(img)
 }
 
-selectBreed("bomb").then(setInfoBreed)
+
+//Search
+
+const breedInput = document.querySelector('.search-bar__input');
+// const btnBreedSearch = document.querySelector('.search-bar__btn');
 
 
+// btnBreedSearch.addEventListener('click', getSearchBreed);
+breedInput.addEventListener('keydown', handleKey);
+
+function handleKey(e) {
+  if (e.key === 'Enter') {
+    hideForSearch();
+    getSearchBreed();
+    checkHistory();
+    removeActiveClass();
+    hideListCategory();
+    removeActiveClassList();
+  }
+}
+
+
+function validateInput(text){
+  if (/^[a-zA-Z]+(?:[\s-]+[a-zA-Z]+)*$/gm.test(text)) {
+    return text;
+  }
+  alert("You have to enter a valid breed name");  
+  const searchGalery = document.querySelector('.search-galery')
+  let getText = document.querySelector('.search-info__header-h2__bold')
+  getText.innerHTML = ''
+  while (searchGalery.firstChild) {
+    searchGalery.removeChild(searchGalery.firstChild);
+    searchImgFlag = null
+  }
+  breedInput.value = ''
+  return false;
+}
+
+let foundId = null
+
+function finIdSearch(data){
+  let errFlag = null
+  if(validateInput(breedInput.value)){
+    let inputText = breedInput.value
+    for(let i = 0; i<data.length; i++){
+
+      if(inputText == data[i].name){
+        foundId = data[i].id
+      } else{
+        errFlag++
+        if(errFlag == 67){
+          foundId=null
+        }
+      }
+      
+    }  
+    selectBreed(foundId).then(createInfoSearch)
+  }
+
+}
+
+let searchImgFlag = null;
+function createInfoSearch(data){
+  let getText = document.querySelector('.search-info__header-h2__bold')
+  const searchGalery = document.querySelector('.search-galery')
+
+  if(data.length==0){
+    alert("You must enter the correct breed name");  
+    while (searchGalery.firstChild) {
+      searchGalery.removeChild(searchGalery.firstChild);
+      searchImgFlag = null
+
+    }
+    breedInput.value = ''
+  } 
+  getText.innerHTML = `${breedInput.value}`
+
+
+  breedInput.value = ''
+
+  let specTitleText = document.querySelector('.specific__title-text')
+  specTitleText.innerHTML = 'SEARCH'
+
+  let img = document.createElement("img");
+  let imgBox = document.createElement("div")
+
+  imgBox.classList.add('photo-box', `${(data[0].breeds[0].name).replace(/\s+/g, '-')}`, 'photo-hover')
+
+  let urlCat = data[0].url;
+  img.src = `${urlCat}`;
+
+  let sectionForImg = document.createElement("section")
+
+  img.classList.add('photo')
+  let butForImg = document.createElement("h2")
+  butForImg.innerHTML = `${data[0].breeds[0].name}`
+  butForImg.classList.add('breed-btn')
+  butForImg.setAttribute("id",`${data[0].breeds[0].id}`);
+  sectionForImg.appendChild(img)
+
+  imgBox.appendChild(sectionForImg)
+
+  imgBox.appendChild(butForImg)
+
+  if (searchImgFlag !== null) {
+    searchGalery.removeChild(searchImgFlag);
+  }
+
+
+  searchImgFlag = searchGalery.appendChild(imgBox)
+
+  let backBtnAbout = document.querySelector('.specific__btn')
+  backBtnAbout.classList.add('search-btn__about-back')
+  backBtnAbout.classList.remove('specific__btn')
+}
+
+function getSearchBreed(){
+  getBreed(67).then(finIdSearch)
+}
+
+///////////////////////////////////////////////////////////

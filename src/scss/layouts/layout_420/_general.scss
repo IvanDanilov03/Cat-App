@@ -1,0 +1,253 @@
+@media (min-width: 320px) {
+    .grid-container{
+        min-height: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        // overflow-y: hidden;
+        .left-part{
+          margin-left: 20px;
+      
+          display: flex;
+          flex-direction: column;
+        }
+    }
+    .right-place{
+        display: none;
+    }
+    .main-text{
+        margin-top: 50px;
+    }
+    .main-text__greating{
+        font-size: 44px;
+        font-weight: 500;
+        color: $black;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    .choose{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-bottom: 30px;
+    }
+    .mobile-menu__choose{
+        display: flex;
+        flex-direction: column;
+        margin-left: auto;
+    }
+    .mobile-menu__voting{
+        margin-left: auto;
+        margin-right: auto;
+    }  
+    .mobile-menu__breeds{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .mobile-menu__galery{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .mobile-menu__close{
+        width: 40px;
+        height: 40px;
+        background-color: $white;
+        text-align: center;
+        margin: 10px 5vw 10px auto;
+        border-radius: 10px;
+        display: table;
+        .mobile-menu__close-symbol{
+          margin-top: auto;
+          margin-bottom: auto;
+          font-size: 25px;
+          color: $darkPink;
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+
+      
+    .choose__voting-icon, .mobile-menu__voting-icon{
+    display: none;
+    }
+    .choose__breeds-icon, .mobile-menu__breeds-icon{
+    display: none;
+    }
+    .choose__galery-icon, .mobile-menu__galery-icon{
+    display: none;
+    }
+    .choose__voting-button, .mobile-menu__voting-button{
+    @include choose-button();
+    width: 90vw;
+
+    }
+    .choose__breeds-button, .mobile-menu__breeds-button{
+    @include choose-button();
+    width: 90vw;
+
+    }
+    .choose__galery-button, .mobile-menu__galery-button{
+    @include choose-button();
+    width: 90vw;
+
+    }
+
+    .right-functional{
+        margin: 10px 20px 10px 20px;
+    }
+    .header{
+        display: grid;
+        grid-template-areas: 
+        "menu empty list"
+        "search search search"
+        ;
+    }
+    .menu{
+        grid-area: menu;
+    }
+    .lists{
+        grid-area: list;
+    }
+    .search{
+        grid-area: search
+    }
+    .search-bar{
+        width: 100%;
+    }
+    .lists{
+        margin-left: auto;
+    }
+    .voting{
+        height: calc(100vh - 9em);
+        background-color: $white;
+        border-radius: 20px;
+        .voting-header{
+          @include header();
+        }
+    }
+    .voting-main{
+        max-height: 70%;
+    }
+    .voting-main__img-box{
+        width: 90%;
+        // background-color: #F8F8F7;
+        display:flex;
+        justify-content: center; 
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        img{
+          border-radius: 10px;
+          width: auto;
+          max-height: 30vh;
+        }
+      }
+      .voting-main__btn-box{
+        margin-left: auto;
+        margin-right: auto;
+        display:flex;
+        justify-content: center; 
+        align-items: center;
+        width: 170px;
+        height: 60px;
+        background-color: $white;
+        flex-direction: row;
+        border-radius: 10px;
+        position: relative;
+        top: -30px;
+      
+        .voting-main__btn-like{
+          width: 50px;
+          height: 50px;
+          border-radius: 10px 0px 0px 10px;
+          background: url(../../images/smile_white.svg) no-repeat center #97EAB9;
+          cursor: pointer;
+        }
+      
+        .voting-main__btn-favourite{
+          width: 50px;
+          height: 50px;
+          margin-left: 5px;
+          background: url(../../images/heart_white.svg) no-repeat center #FF868E;
+          cursor: pointer;
+        }
+      
+        .voting-main__btn-dislike{
+          width: 50px;
+          height: 50px;
+          margin-left: 5px;
+          border-radius: 0px 10px 10px 0px;
+          background: url(../../images/sad_white.svg) no-repeat center #FFD280;
+          cursor: pointer;
+        }
+      
+    }
+    .voting-list{
+    height: 20%;
+    overflow-y: scroll;
+    margin-left: 10px;
+    margin-right: 10px;
+    .voting-list__box{
+        background-color: $grey;
+        width: 100%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        display: grid;
+        grid-template-areas: 
+        'time space img'
+        'text text text'
+        ; 
+        align-items: center;
+        border-radius: 10px;
+        margin-bottom: 10px;    
+        .voting-list__box-time{
+            grid-area: time;
+            margin-left: 10px;
+            font-size: 16px;
+            font-weight: 400;
+            color: #1D1D1D;
+            width: 61px;
+            height: 30px;
+            background-color: $white;
+            text-align: center;
+            padding-top: 5px;
+            border-radius: 10px;
+    
+        }
+        .voting-list__box-text{
+            grid-area: text;
+            margin-left: 10px;
+            font-size: 16px;
+            font-weight: 400;
+            color: #8C8C8C;
+            margin-top: 5px;
+
+            .id{
+                font-weight: 500;
+                color: #1D1D1D;
+            }
+        }
+        img{
+            grid-area: img;
+            margin-left: auto;
+            margin-right: 10px;
+            }
+        }
+    }
+
+    .breeds{
+        // width: 680px;
+      
+        .breeds-header{
+            
+            @include header();
+            flex-wrap: wrap;
+            .breeds-header__limits{
+                select{
+                    padding-right: 10px;
+
+                }
+            }
+        }
+    }
+}
