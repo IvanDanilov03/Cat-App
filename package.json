@@ -2,7 +2,7 @@
   "name": "webpack_project",
   "version": "1.0.0",
   "main": "index.js",
-  "homepage": "https://IvanDanilov03.github.io/Test-task-for-Front-End-Intern/",
+  "homepage": "https://IvanDanilov03.github.io/Cat-App/",
 
   "scripts": {
     "webpack": "webpack",

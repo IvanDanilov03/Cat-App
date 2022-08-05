@@ -28,7 +28,6 @@ const closeMobileMenu = $('.mobile-menu__close')
       leftPart.hide()
     });
     $(document).on('click', '.menu', function(){
-      console.log('hello')
       rightFunctional.hide();
       mobileMEnu.show()
     })
@@ -56,19 +55,21 @@ const closeMobileMenu = $('.mobile-menu__close')
 
       } else if(flagBackArr[flagBackArr.length - 1].attr('class') == 'likes tabs-content__item'){
           mobileMEnu.hide()
-          flagBackArr.pop()
+          rightFunctional.show()
           hideForListLikes(favouritesCategory, dislikesCategory, likesCategory)
           addRemoveActiveClass(btnListFavourite, btnListtDislike, btnListLike)
 
       } else if(flagBackArr[flagBackArr.length - 1].attr('class') == 'favourites tabs-content__item'){
-          flagBackArr.pop()
+        mobileMEnu.hide()
+        rightFunctional.show()
           hideForListLikes(likesCategory, dislikesCategory, favouritesCategory)
           addRemoveActiveClass(btnListLike, btnListtDislike, btnListFavourite)
 
-      } else if(flagBackArr[flagBackArr.length - 2].attr('class') == 'dislikes tabs-content__item'){
-          flagBackArr.pop()
-          hideForListLikes(likesCategory, favouritesCategory, dislikesCategory)
-          addRemoveActiveClass(btnListLike, btnListFavourite, btnListtDislike)
+      } else if(flagBackArr[flagBackArr.length - 1].attr('class') == 'dislikes tabs-content__item'){
+        mobileMEnu.hide()
+        rightFunctional.show()
+        hideForListLikes(likesCategory, favouritesCategory, dislikesCategory)
+        addRemoveActiveClass(btnListLike, btnListFavourite, btnListtDislike)
       }
       })
 
